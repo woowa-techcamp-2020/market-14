@@ -1,0 +1,8 @@
+mixin bmLink(items=[], options={})
+    .bm-link-container(
+        id=options.id
+        class=options.class
+    )
+        each item in items
+            a#item.id
+                =item.text

@@ -1,8 +1,15 @@
 extends layout
-
-block title
-    |배민상회::메인
+include ../components/bmButton
+include ../components/bmLogoCeo
+include ../components/bmTextField
+include ../components/bmLink
 
 block content
     h1 display
     h2 flex
+    +bmLogoCeo
+    +bmTextField({label:'password',required:true})
+    +bmTextField()
+    +bmButton({id: 'hi', class:'클클', text:'버튼입니당~',value:'값'})
+    +bmLogoCeo
+    +bmLink([{text:'아이디 / 비밀번호 찾기', id:''},{text:' | ',id:''},{text:'회원가입',id:''}],{id:'control',class:'hi'})
