@@ -11,7 +11,7 @@ class UserManager {
   }
 
   /**
-   * @param {{id: string, password: string, email: string, name: string, tel: string, zipcode: string, address: string, addressDetail: string, signupDatetime: string, agreeMarketing: string, agreeMarketing: string}} attrs
+   * @param {{id: string, password: string, email: string, name: string, phoneNumber: string, zipCode: string, address: string, addressDetail: string, signupDatetime: string, agreeMarketing: string, agreeMarketingDatetime: string}} attrs
    * @return {Promise}
    */
   createUser(attrs) {
@@ -20,13 +20,13 @@ class UserManager {
       password: attrs.password,
       email: attrs.email,
       name: attrs.name,
-      tel: attrs.tel,
-      zipcode: attrs.zipcode,
+      phoneNumber: attrs.phoneNumber,
+      zipCode: attrs.zipCode,
       address: attrs.address,
       addressDetail: attrs.addressDetail,
       signupDatetime: attrs.signupDatetime,
       agreeMarketing: attrs.agreeMarketing,
-      agreeMarketingDateTime: attrs.agreeMarketingDatetime,
+      agreeMarketingDatetime: attrs.agreeMarketingDatetime,
     });
 
     return new Promise((resolve, reject) => {
@@ -45,10 +45,14 @@ class UserManager {
     return new Promise((resolve, reject) => {
       this.db.findOne({ id: userId }, (err, data) => {
         if (err) reject(err);
-        resolve(new User(data));
+        if (data) {
+          resolve(new User(data));
+        }
+
+        resolve({});
       });
     });
   }
 }
 
-module.exports = UserManager;
+module.exports = new UserManager();
