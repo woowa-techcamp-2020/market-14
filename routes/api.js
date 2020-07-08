@@ -36,7 +36,7 @@ router.post(
   },
 );
 
-router.get('/logout', (req, res) => {
+router.get('/signout', (req, res) => {
   if (req.session.user) {
     req.session.destroy();
     res.status(204).send();
