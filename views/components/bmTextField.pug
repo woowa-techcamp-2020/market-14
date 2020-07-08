@@ -1,4 +1,5 @@
-mixin bmTextField(options={})
-    label.bm-label(for=options.id)
-        =options.label
-    input.bm-text-field(id=options.id class=options.class required=options.required type=text)
+mixin bmTextField(args={})
+    .bm-textfield-container(class=args.class)
+        label.bm-textfield-label(for=args.id)
+            =args.label
+        input.bm-textfield-input(id=args.id required=args.required type='text')
