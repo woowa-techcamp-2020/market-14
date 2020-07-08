@@ -1,0 +1,18 @@
+extends layout
+include ../components/bmButton
+include ../components/bmLogoCeo
+include ../components/bmTextField
+
+block content
+    +bmLogoCeo
+    +bmTextField({ text: '아이디' })
+    +bmTextField({ text: '비밀번호' })
+    .user-control-container
+      input#save_id(type='checkbox')
+      label(for='save_id')
+        | 아이디 저장
+      a#find.user-control-find 아이디 / 비밀번호 찾기 
+      .user-control-divider |
+      a#join.user-control-join 회원가입
+    br
+    +bmButton({ text:'로그인' })
