@@ -4,5 +4,5 @@ mixin bmLink(items=[], options={})
         class=options.class
     )
         each item in items
-            a#item.id
+            a.bm-link-text(id=item.id)
                 =item.text

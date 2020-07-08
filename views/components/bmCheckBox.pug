@@ -1,0 +1,5 @@
+mixin bmCheckBox(args={})
+    .bm-checkbox-container(class=args.class)
+        input(type='checkbox', id=args.id required=args.required)
+        label(for=args.id)
+            =args.text
