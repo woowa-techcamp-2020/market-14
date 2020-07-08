@@ -6,8 +6,43 @@ const Validator = require('../modules/Validator');
 
 const router = express.Router();
 
-router.post('/login', (req, res) => {
-  res.send(req);
+router.post(
+  '/signin',
+  [
+    body('userId').isLength({ min: 4, max: 20 }).matches(Validator.RegexUserId).trim(),
+    body('userPw').isLength({ min: 8, max: 20 }).matches(Validator.RegexUserPassword).trim(),
+  ],
+  async (req, res) => {
+    if (req.session.user) {
+      res.redirect('/');
+      return;
+    }
+    const matchedBody = matchedData(req);
+    const id = matchedBody.userId;
+    const pw = matchedBody.userPw;
+    const user = await userManager.findUserById(id);
+    const result = {};
+    if (user.password === pw) {
+      req.session.user = id;
+      result.code = 0;
+      result.message = '로그인 성공';
+      res.status(200);
+    } else {
+      result.code = 1;
+      result.message = '로그인 실패';
+      res.status(401);
+    }
+    res.json(result);
+  },
+);
+
+router.get('/logout', (req, res) => {
+  if (req.session.user) {
+    req.session.destroy();
+    res.status(204).send();
+  } else {
+    res.status(401).send();
+  }
 });
 
 router.post(
