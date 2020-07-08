@@ -1,11 +1,14 @@
+@import url(reset.css);
+
 .wrapper {
   display: flex;
+  font-size: 18px;
   flex-direction: column;
-  min-width: 360px;
-  min-height: 600px;
-  width: 50vw;
+  width: 700px;
   margin: auto;
-  border: 2px solid black;
+  padding: 50px;
+  box-sizing: border-box;
+  border: 1px solid black;
 }
 
 .bm-logo-ceo {
@@ -26,4 +29,53 @@
 }
 
 .bm-checkbox-container {
+}
+
+.bm-button {
+  color: white;
+  background-color: #1a7dfe;
+  font-size: 30px;
+  font-weight: 550;
+  padding: 30px 0;
+  border: 0;
+  user-select: none;
+}
+
+.bm-button:focus {
+  outline: 0;
+}
+
+.bm-button:hover {
+  background-color: #428cee;
+}
+
+.bm-button:active {
+  background-color: #6ba1e7;
+}
+
+.main-title {
+  font-size: 32px;
+  margin-bottom: 22px;
+}
+
+.user-control-container {
+  display: flex;
+  justify-content: flex-end;
+  color: #909090;
+  margin-top: 10px;
+  font-size: 22px;
+  user-select: none;
+}
+
+.user-control-divider {
+  margin: 0 10px;
+  color: #b0b0b0;
+  cursor: default;
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    width: 400px;
+    font-size: 13px;
+  }
 }
