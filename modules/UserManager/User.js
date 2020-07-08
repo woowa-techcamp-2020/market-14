@@ -4,8 +4,8 @@ class User {
     password,
     email,
     name,
-    tel,
-    zipcode,
+    phoneNumber,
+    zipCode,
     address,
     addressDetail,
     signupDatetime,
@@ -16,8 +16,8 @@ class User {
     this.password = password;
     this.email = email;
     this.name = name;
-    this.tel = tel;
-    this.zipcode = zipcode;
+    this.phoneNumber = phoneNumber;
+    this.zipCode = zipCode;
     this.address = address;
     this.addressDetail = addressDetail;
     this.signupDatetime = signupDatetime;
