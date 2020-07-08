@@ -1,12 +1,11 @@
 extends layout
 include ../components/bmButton
-include ../components/bmLogoCeo
-include ../components/bmTextField
-include ../components/bmLink
-include ../components/bmCheckBox
-include ../components/bmSelect
 
 block content
-    h1 display
-    h2 flex
-    +bmSelect({id:'mySelect',class:'myClass',default:'암거나 고르세요',items:[{text:'우아한',value:'배민'},{text:'ㅋㅋㅋ',value:'zzz'}]})
+    h1.main-title 사장님,로그인 해주세요!
+    +bmButton({text:'배민사장님광장 로그인'})
+    .user-control-container
+        a#find.user-control-find 아이디 / 비밀번호 찾기 
+        .user-control-divider |
+        //- 분리하는 부분 나중에 css로
+        a#join.user-control-join 회원가입
