@@ -2,29 +2,28 @@
 
 /* eslint-disable no-shadow */
 /* eslint-disable no-console */
+/* eslint-disable import/order */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-restricted-globals */
 /**
  * Module dependencies.
  */
 
-import { createServer } from 'http';
-import app, { set } from '../app';
-
+const app = require('../app');
 const debug = require('debug')('myapp:server');
-
+const http = require('http');
 /**
  * Get port from environment and store in Express.
  */
 
 const port = normalizePort(process.env.PORT || '3000');
-set('port', port);
+app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-const server = createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.

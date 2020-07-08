@@ -1,8 +1,16 @@
-body {
-  padding: 50px;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 360px;
+  min-height: 600px;
+  width: 50vw;
+  margin: auto;
+  border: 2px solid black;
 }
 
-a {
-  color: #00b7ff;
+.bm-link-container {
+  background-color: greenyellow;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
