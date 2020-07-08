@@ -1,5 +1,2 @@
 mixin bmTextField(args={})
-    .bm-textfield-container(class=args.class)
-        label.bm-textfield-label(for=args.id)
-            =args.label
-        input.bm-textfield-input(id=args.id required=args.required type='text')
+    input.bm-textfield(id=args.id class=args.class required=args.required placeholder=args.text type='text')
