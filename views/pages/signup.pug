@@ -67,6 +67,12 @@ block content
       .form-block
         +bmButton({ text:'회원가입' })
 
+      .auth-modal
+        .modal-content
+          span.close X
+          .message 인증번호를 확인해주세요.
+          .code 123456
+
     section.signup__result(style='display:none')
       +bmLogoCeo()
       h2(hidden) 배민상회 회원가입 결과
