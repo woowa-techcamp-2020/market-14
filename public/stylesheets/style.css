@@ -85,7 +85,7 @@ body {
   margin: 4px 0;
   font-size: 16px;
   border-radius: 2px;
-  transition: box-shadow .24s ease-out;
+  transition: box-shadow 0.24s ease-out;
 }
 
 .bm-textfield:focus {
@@ -100,11 +100,11 @@ body {
   text-align: center;
 }
 
-.main__signin .message {
+.main__signin .msg {
+  color: #ff5050;
   text-align: left;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 700;
-  margin-bottom: 20px;
 }
 
 .main__signin .sub-area {
@@ -131,7 +131,7 @@ body {
   color: #d4d4d4;
 }
 
-.main__signin .sub-area__saveid input[type=checkbox] {
+.main__signin .sub-area__saveid input[type='checkbox'] {
   display: inline-block;
   width: 15px;
   height: 15px;
