@@ -25,7 +25,9 @@ block content
         +bmTextField({ name: '', text: '휴대폰*', required: true })
         button.sg-button(id='getAutNo' disabled) 인증받기
       .form-block
-        +bmTextField({ class: 'error', name: '', text: '인증번호 6자리 입력', required: true })
+        .authcode-box
+          +bmTextField({ class: 'error', name: '', text: '인증번호 6자리 입력', required: true })
+          span.time 02:00
         button.sg-button(id='getAutNo' disabled) 확인
       .form-message.msg-error 인증번호를 다시 확인해주세요.
       .form-message.vertical.has-info
@@ -61,8 +63,10 @@ block content
         .terms-info
             | * 만 14세 이상 회원만 가입 가능합니다. 
             a(href='#') 내용보기
+
       .form-block
         +bmButton({ text:'회원가입' })
+
     section.signup__result(style='display:none')
       +bmLogoCeo()
       h2(hidden) 배민상회 회원가입 결과
