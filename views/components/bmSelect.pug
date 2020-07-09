@@ -1,5 +1,5 @@
 mixin bmSelect(args={})
-    select.bm-select(id=args.id class=args.class)
+    select.bm-select(id=args.id name=args.name class=args.class)
         option(selected disabled hidden)
             =args.default
         each item in args.items
