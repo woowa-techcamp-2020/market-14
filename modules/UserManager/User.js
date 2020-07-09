@@ -24,10 +24,6 @@ class User {
     this.agreeMarketing = agreeMarketing;
     this.agreeMarketingDatetime = agreeMarketingDatetime;
   }
-
-  updatePassword(password) {
-    this.password = password;
-  }
 }
 
 module.exports = User;
