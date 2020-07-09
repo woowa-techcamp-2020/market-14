@@ -11,7 +11,7 @@ block content
     +bmLogoCeo()
     h2(hidden) 배민상회 로그인
     .main__signin
-      p#msgSignin.msg
+      p#msgSignin.error-message
       +bmTextField({id: 'id', text: '아이디', required: true })
       +bmTextField({id: 'pw', text: '비밀번호', required: true, type:'password' })
       .sub-area

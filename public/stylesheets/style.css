@@ -100,7 +100,14 @@ body {
   text-align: center;
 }
 
-.main__signin .msg {
+.main__signin .message {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.main__signin .error-message {
   color: #ff5050;
   text-align: left;
   font-size: 14px;
