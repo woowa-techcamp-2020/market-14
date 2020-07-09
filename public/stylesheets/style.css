@@ -1,44 +1,69 @@
 @import url(reset.css);
 
-.wrapper {
-  display: flex;
-  font-size: 18px;
-  flex-direction: column;
-  width: 700px;
-  margin: auto;
-  padding: 50px;
+* {
   box-sizing: border-box;
-  border: 1px solid black;
 }
 
-.bm-logo-ceo {
-  width: 60%;
+main,
+section,
+header,
+footer,
+aside {
+  display: block;
 }
 
-.bm-link-container {
-  background-color: greenyellow;
-  padding: 0 20px;
+body {
+  padding: 4.2rem;
+  background: #f0f0f0;
+}
+
+.wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wrapper main {
   display: flex;
-  justify-content: flex-end;
+  width: 500px;
+  margin: auto;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  border: 2px solid #d3d3d3;
+  border-radius: 20px;
+  background: #fff;
+  color: #333;
 }
 
-.bm-link-text {
-  padding: 0.2em;
-  color: gray;
-}
+/* components */
 
-.bm-checkbox-container {
+.bm-logo {
+  width: 90%;
+  margin: 0 auto 60px auto;
 }
 
 .bm-button {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
   color: white;
   background-color: #1a7dfe;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 550;
-  padding: 30px 0;
+  text-align: center;
+  padding: 16px 0;
   border: 0;
   user-select: none;
+  border-radius: 15px;
+}
+
+.bm-button:link,
+.bm-button:visited,
+.bm-button:hover,
+.bm-button:active {
+  text-decoration: none;
 }
 
 .bm-button:focus {
@@ -53,29 +78,71 @@
   background-color: #6ba1e7;
 }
 
-.main-title {
-  font-size: 32px;
-  margin-bottom: 22px;
+.bm-textfield {
+  width: 100%;
+  border: 1px solid #cdcdcd;
+  padding: 14px 6px;
+  margin: 4px 0;
+  font-size: 16px;
+  border-radius: 2px;
+  transition: box-shadow .24s ease-out;
 }
 
-.user-control-container {
+.bm-textfield:focus {
+  outline: 0;
+  box-shadow: 0 0 0 1px #1a7dfe;
+}
+
+/* main */
+
+.main__signin {
+  width: 100%;
+  text-align: center;
+}
+
+.main__signin .message {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.main__signin .sub-area {
+  margin: 14px 0 14px 0;
   display: flex;
-  justify-content: flex-end;
-  color: #909090;
-  margin-top: 10px;
-  font-size: 22px;
-  user-select: none;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
 }
 
-.user-control-divider {
-  margin: 0 10px;
-  color: #b0b0b0;
-  cursor: default;
+.main__signin .sub-area .link:link,
+.main__signin .sub-area .link:visited {
+  color: #888;
+  text-decoration: none;
 }
 
-@media only screen and (max-width: 768px) {
-  .wrapper {
-    width: 400px;
-    font-size: 13px;
-  }
+.main__signin .sub-area .link:hover,
+.main__signin .sub-area .link:active {
+  text-decoration: underline;
+}
+
+.main__signin .sub-area .link-divider {
+  margin: 0 13px 0 11px;
+  color: #d4d4d4;
+}
+
+.main__signin .sub-area__saveid input[type=checkbox] {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #cdcdcd;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 0 0;
+  vertical-align: middle;
+}
+
+.main__signin .sub-area__saveid label {
+  font-size: 14px;
 }

@@ -1,11 +1,17 @@
 extends layout
 include ../components/bmButton
+include ../components/bmLogoCeo
 
 block content
-    h1.main-title 사장님,로그인 해주세요!
-    +bmButton({text:'배민사장님광장 로그인'})
-    .user-control-container
-        a#find.user-control-find 아이디 / 비밀번호 찾기 
-        .user-control-divider |
-        //- 분리하는 부분 나중에 css로
-        a#join.user-control-join 회원가입
+  main(class='main')
+    +bmLogoCeo()
+    h2(hidden) 배민상회 홈화면
+    .main__signin
+      .message 사장님, 로그인 해주세요!
+      a.bm-button(href='/signin', alt='로그인') 배민사장님광장 로그인
+      .sub-area
+        .left
+        .right
+          a.link(href='#') 아이디 / 비밀번호 찾기 
+          span.link-divider |
+          a.link(href='/signup') 회원가입
