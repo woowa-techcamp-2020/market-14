@@ -2,16 +2,23 @@ extends layout
 include ../components/bmButton
 include ../components/bmLogoCeo
 
+block scripts
+  script(src='js/main.js')
+
 block content
   main(class='main')
     +bmLogoCeo()
     h2(hidden) 배민상회 홈화면
     .main__signin
-      .message 사장님, 로그인 해주세요!
-      a.bm-button(href='/signin', alt='로그인') 배민사장님광장 로그인
-      .sub-area
-        .left
-        .right
-          a.link(href='#') 아이디 / 비밀번호 찾기 
-          span.link-divider |
-          a.link(href='/signup') 회원가입
+      if user
+        .message=user + ' 사장님 환영합니다!' 
+        a.bm-button(id='btnSignout', alt='로그아웃') 사장님 로그아웃ㅠㅠ
+      else
+        .message 사장님, 로그인 해주세요!
+        a.bm-button(href='/signin', alt='로그인') 배민사장님광장 로그인
+        .sub-area
+          .left
+          .right
+            a.link(href='#') 아이디 / 비밀번호 찾기 
+            span.link-divider |
+            a.link(href='/signup') 회원가입

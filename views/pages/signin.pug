@@ -3,13 +3,17 @@ include ../components/bmButton
 include ../components/bmLogoCeo
 include ../components/bmTextField
 
+block scripts
+  script(src='js/signin.js')
+    
 block content
   main(class='main')
     +bmLogoCeo()
     h2(hidden) 배민상회 로그인
     .main__signin
-      +bmTextField({ text: '아이디', required: true })
-      +bmTextField({ text: '비밀번호', required: true })
+      p#msgSignin.error-message
+      +bmTextField({id: 'id', text: '아이디', required: true })
+      +bmTextField({id: 'pw', text: '비밀번호', required: true, type:'password' })
       .sub-area
         .left.sub-area__saveid
           input#save_id(type='checkbox', name='saveId', require=true, class='checkbox')
@@ -19,4 +23,4 @@ block content
           a.link(href='#') 아이디 / 비밀번호 찾기 
           span.link-divider |
           a.link(href='/signup') 회원가입
-      +bmButton({ text:'로그인' }) 
+      +bmButton({id:'btnSignin', text:'로그인' }) 
