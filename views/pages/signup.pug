@@ -1,0 +1,65 @@
+extends layout
+include ../components/bmButton
+include ../components/bmLogoCeo
+include ../components/bmTextField
+include ../components/bmSelect
+
+block content
+  main(class='signup')
+    .signup__form
+      +bmLogoCeo()
+      h2(hidden) 배민상회 회원가입
+      .form-guide 필수 정보를 입력해주세요.
+      .form-block
+        +bmTextField({ class: 'error', name: '', text: '아이디* (4~20자)', required: true })
+      .form-message.msg-error 아이디는 4~20글자 이내로 작성해주세요.
+      .form-block
+        +bmTextField({ type: 'password', name: '', text: '비밀번호* (영문+숫자, 8~20자)', required: true })
+      .form-block
+        +bmTextField({ type: 'password', name: '', text: '비밀번호 재확인*', required: true })
+      .form-block
+        +bmTextField({ name: '', text: '이메일*', required: true })
+      .form-block
+        +bmTextField({ name: '', text: '이름*', required: true })
+      .form-block
+        +bmTextField({ name: '', text: '휴대폰*', required: true })
+        button.sg-button(id='getAutNo' disabled) 인증받기
+      .form-block
+        +bmTextField({ class: 'error', name: '', text: '인증번호 6자리 입력', required: true })
+        button.sg-button(id='getAutNo' disabled) 확인
+      .form-message.msg-error 인증번호를 다시 확인해주세요.
+      .form-message.vertical.has-info
+        .text-small * 인증번호 전송은 통신사에 따라 최대 1분까지 소요될 수 있습니다.
+        .text-small * 인증번호가 도착하지 않을 경우 '인증번호 재발송'을 눌러주세요.
+      
+      .form-guide.input-checkbox
+        input#agreeOptional(type='checkbox')
+        label(for='agreeOptional') 선택 정보를 입력하시겠습니까?
+        a(href='#') 내용보기
+      .form-block
+        +bmTextField({ name: '', text: '우편번호', readonly: true })
+        button.sg-button(id='getAutNo' disabled) 주소찾기
+      .form-block
+        +bmTextField({ name: '', text: '주소', readonly: true })
+      .form-block
+        +bmTextField({ name: '', text: '상세 주소', readonly: true })
+
+      .signup__terms
+        .input-checkbox.input-checkbox-all
+          input#agreeAll(type='checkbox', name: '')
+          label(for='agreeAll') 전체 약관에 동의합니다.
+        .input-checkbox
+          input#agreeService(type='checkbox', name: '')
+          label(for='agreeService') 필수 항목에 동의합니다.
+        .terms-link
+          a(href='#') 배민사장님광장 이용약관
+          span.space 
+          a(href='#') 개인정보 수집이용 동의
+        .input-checkbox
+          input#agreeMarketing(type='checkbox', name: '')
+          label(for='agreeMarketing') 광고성 정보 수신 동의(선택)
+        .terms-info
+            | * 만 14세 이상 회원만 가입 가능합니다. 
+            a(href='#') 내용보기
+      .form-block
+        +bmButton({ text:'회원가입' })
