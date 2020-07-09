@@ -6,7 +6,7 @@ include ../components/bmSelect
 
 block content
   main(class='signup')
-    .signup__form
+    section.signup__form
       +bmLogoCeo()
       h2(hidden) 배민상회 회원가입
       .form-guide 필수 정보를 입력해주세요.
@@ -63,3 +63,28 @@ block content
             a(href='#') 내용보기
       .form-block
         +bmButton({ text:'회원가입' })
+    section.signup__result(style='display:none')
+      +bmLogoCeo()
+      h2(hidden) 배민상회 회원가입 결과
+      .title 회원이 되셨습니다.
+      .home-button
+        a(href='/')
+          | 메인으로
+          span.icon-arrow
+      ul.info-list
+        li
+          span.header 이름
+          span#info_item_name.content
+        li
+          span.header 아이디
+          span#info_item_id.content
+        li
+          span.header 이메일
+          span#info_item_email.content
+        li
+          span.header 휴대폰
+          span#info_item_phone.content
+      .info-desc
+        | - 위 내용은 
+        a(href='#') 내 정보 관리
+        | 에서 수정하실 수 있습니다.
