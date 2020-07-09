@@ -1,7 +1,7 @@
 const express = require('express');
 const moment = require('moment');
 const { body, matchedData, validationResult } = require('express-validator');
-const userManager = require('../modules/UserManager');
+const { userManager, checkPassword } = require('../modules/UserManager');
 const Validator = require('../modules/Validator');
 
 const router = express.Router();
@@ -13,19 +13,31 @@ router.post(
     body('userPw').isLength({ min: 8, max: 20 }).matches(Validator.RegexUserPassword).trim(),
   ],
   async (req, res) => {
+    const result = {};
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      result.code = '1';
+      result.message = '전송 값을 확인해주세요.';
+      res.status(400).json(result);
+      return;
+    }
+
     const matchedBody = matchedData(req);
     const id = matchedBody.userId;
     const pw = matchedBody.userPw;
     const user = await userManager.findUserById(id);
-    const result = {};
-    if (user.password && user.password === pw) {
+
+    if (user.password && checkPassword(pw, user.password)) {
       req.session.user = id;
-      result.code = 0;
+      result.code = '0';
+      result.message = '로그인 성공';
       res.status(200);
     } else {
-      result.code = 1;
+      result.code = '2';
+      result.message = '아이디 또는 비밀번호를 확인해주세요.';
       res.status(401);
     }
+
     res.json(result);
   },
 );

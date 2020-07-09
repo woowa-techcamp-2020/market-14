@@ -12,8 +12,10 @@ block content
     h2(hidden) 배민상회 로그인
     .main__signin
       p#msgSignin.error-message
-      +bmTextField({id: 'id', text: '아이디', required: true })
-      +bmTextField({id: 'pw', text: '비밀번호', required: true, type:'password' })
+      .input-block
+        +bmTextField({id: 'id', text: '아이디', required: true })
+      .input-block
+        +bmTextField({id: 'pw', text: '비밀번호', required: true, type:'password' })
       .sub-area
         .left.sub-area__saveid
           input#save_id(type='checkbox', name='saveId', require=true, class='checkbox')
