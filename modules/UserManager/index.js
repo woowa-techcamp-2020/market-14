@@ -1,6 +1,7 @@
 const path = require('path');
 const Nedb = require('nedb');
 const User = require('./User');
+const { getPasswordHash, checkPassword } = require('./UserCrypto');
 
 class UserManager {
   constructor() {
@@ -15,9 +16,10 @@ class UserManager {
    * @return {Promise}
    */
   createUser(attrs) {
+    const passwordHash = getPasswordHash(attrs.password);
     const user = new User({
       id: attrs.id,
-      password: attrs.password,
+      password: passwordHash,
       email: attrs.email,
       name: attrs.name,
       phoneNumber: attrs.phoneNumber,
@@ -55,4 +57,7 @@ class UserManager {
   }
 }
 
-module.exports = new UserManager();
+module.exports = {
+  userManager: new UserManager(),
+  checkPassword,
+};
