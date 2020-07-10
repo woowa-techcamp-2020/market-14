@@ -42,6 +42,20 @@ router.post(
   },
 );
 
+router.get('/userIdCheck', async (req, res) => {
+  const id = req.query.userId;
+  const user = await userManager.findUserById(id);
+  const result = {};
+  if (!user.id) {
+    result.code = 0;
+    res.status(200);
+  } else {
+    result.code = 1;
+    res.status(401);
+  }
+  res.json(result);
+});
+
 router.get('/signout', (req, res) => {
   if (req.session.user) {
     req.session.destroy();

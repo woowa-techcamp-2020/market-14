@@ -5,35 +5,39 @@ include ../components/bmTextField
 include ../components/bmSelect
 
 block scripts
-  script(src='https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
-  script(src='/js/address.js')
-
+  script(src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js")
+  script(src="js/signup.js")
 block content
   main(class='signup')
-    section.signup__form
+    section#signupForm.signup__form
       +bmLogoCeo()
       h2(hidden) 배민상회 회원가입
       .form-guide 필수 정보를 입력해주세요.
       .form-block
-        +bmTextField({ class: 'error', name: '', text: '아이디* (4~20자)', required: true })
-      .form-message.msg-error 아이디는 4~20글자 이내로 작성해주세요.
+        +bmTextField({id:'id', name: '', text: '아이디* (4~20자)', required: true })
+      #msgId.form-message
       .form-block
-        +bmTextField({ type: 'password', name: '', text: '비밀번호* (영문+숫자, 8~20자)', required: true })
+        +bmTextField({id:'pw', type: 'password', name: '', text: '비밀번호* (영문+숫자, 8~20자)', required: true })
+      #msgPw.form-message.msg-error 비밀번호는 영문과 숫자를 포함하여 8~20자로 입력해 주세요.
       .form-block
-        +bmTextField({ type: 'password', name: '', text: '비밀번호 재확인*', required: true })
+        +bmTextField({id:'pwChk', type: 'password', name: '', text: '비밀번호 재확인*', required: true })
+      #msgPwChk.form-message.msg-error 위 비밀번호와 일치하지 않습니다.
       .form-block
-        +bmTextField({ name: '', text: '이메일*', required: true })
+        +bmTextField({id:'email', name: '', text: '이메일*', required: true })
+      #msgEmail.form-message.msg-error 이메일 양식에 맞게 입력해 주세요.
       .form-block
-        +bmTextField({ name: '', text: '이름*', required: true })
+        +bmTextField({id:'name', name: '', text: '이름*', required: true })
+      #msgName.form-message.msg-error 이름에는 특수문자, 숫자를 사용할 수 없습니다.
       .form-block
-        +bmTextField({ name: '', text: '휴대폰*', required: true })
-        button.sg-button(id='getAutNo' disabled) 인증받기
+        +bmTextField({id:'phone', name: '', text: '휴대폰*', required: true })
+        button#getAutNo.sg-button(disabled) 인증받기
+
       .form-block
         .authcode-box
-          +bmTextField({ class: 'error', name: '', text: '인증번호 6자리 입력', required: true })
+          +bmTextField({id:'autNo', name: '', text: '인증번호 6자리 입력', required: true })
           span.time 02:00
-        button.sg-button(id='getAutNo' disabled) 확인
-      .form-message.msg-error 인증번호를 다시 확인해주세요.
+        button#confirmAutNo.sg-button(disabled) 확인
+      #msgAutNo.form-message.msg-error 인증번호를 다시 확인해주세요.
       .form-message.vertical.has-info
         .text-small * 인증번호 전송은 통신사에 따라 최대 1분까지 소요될 수 있습니다.
         .text-small * 인증번호가 도착하지 않을 경우 '인증번호 재발송'을 눌러주세요.
@@ -43,19 +47,19 @@ block content
         label(for='agreeOptional') 선택 정보를 입력하시겠습니까?
         a(href='#') 내용보기
       .form-block
-        +bmTextField({ name: '', text: '우편번호', readonly: true })
-        button.sg-button(id='search_address') 주소찾기
+        +bmTextField({id:'zipCode' , text: '우편번호', readonly: true })
+        button#btnAddress.sg-button(disabled) 주소찾기
       .form-block
-        +bmTextField({ name: '', text: '주소', readonly: true })
+        +bmTextField({id:'address', text: '주소', readonly: true })
       .form-block
-        +bmTextField({ name: '', text: '상세 주소', readonly: true })
+        +bmTextField({id:'addressDetail', text: '상세 주소', readonly: true })
 
       .signup__terms
         .input-checkbox.input-checkbox-all
           input#agreeAll(type='checkbox', name: '')
           label(for='agreeAll') 전체 약관에 동의합니다.
         .input-checkbox
-          input#agreeService(type='checkbox', name: '')
+          input#agreeService(type='checkbox', name: '', required)
           label(for='agreeService') 필수 항목에 동의합니다.
         .terms-link
           a(href='#') 배민사장님광장 이용약관
@@ -69,7 +73,7 @@ block content
             a(href='#') 내용보기
 
       .form-block
-        +bmButton({ text:'회원가입' })
+        +bmButton({id:'btnSubmit', text:'회원가입' })
 
       .modal.auth-modal
         .modal-content
@@ -81,10 +85,10 @@ block content
         .modal-content
           .content__title
             .title 주소 검색
-            .close X
+            #btnClose.close X
           .content__frame#address_modal_frame
 
-    section.signup__result(style='display:none')
+    section#signupResult.signup__result(style='display:none')
       +bmLogoCeo()
       h2(hidden) 배민상회 회원가입 결과
       .title 회원이 되셨습니다.
