@@ -4,6 +4,10 @@ include ../components/bmLogoCeo
 include ../components/bmTextField
 include ../components/bmSelect
 
+block scripts
+  script(src='https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
+  script(src='/js/address.js')
+
 block content
   main(class='signup')
     section.signup__form
@@ -40,7 +44,7 @@ block content
         a(href='#') 내용보기
       .form-block
         +bmTextField({ name: '', text: '우편번호', readonly: true })
-        button.sg-button(id='getAutNo' disabled) 주소찾기
+        button.sg-button(id='search_address') 주소찾기
       .form-block
         +bmTextField({ name: '', text: '주소', readonly: true })
       .form-block
@@ -67,11 +71,18 @@ block content
       .form-block
         +bmButton({ text:'회원가입' })
 
-      .auth-modal
+      .modal.auth-modal
         .modal-content
           span.close X
           .message 인증번호를 확인해주세요.
           .code 123456
+
+      .modal.address-modal#address_modal
+        .modal-content
+          .content__title
+            .title 주소 검색
+            .close X
+          .content__frame#address_modal_frame
 
     section.signup__result(style='display:none')
       +bmLogoCeo()

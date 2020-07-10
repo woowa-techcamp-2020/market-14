@@ -387,7 +387,9 @@ body {
   text-decoration: underline;
 }
 
-.auth-modal {
+/* Modal Content/Box */
+
+.modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -400,14 +402,27 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content/Box */
-.auth-modal .modal-content {
+.modal .modal-content {
   width: 400px;
   margin: 15% auto;
   padding: 30px;
   border: 1px solid #9c9c9c;
   border-radius: 14px;
   background-color: #fefefe;
+}
+
+.modal .close {
+  float: right;
+  color: #9c9c9c;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+  color: #1a1a1a;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .auth-modal .message {
@@ -422,16 +437,46 @@ body {
   font-weight: 700;
 }
 
-.auth-modal .close {
-  float: right;
-  color: #9c9c9c;
-  font-size: 25px;
-  font-weight: 700;
+.address-modal .modal-content {
+  padding: 0;
+  border-radius: 0;
+  margin: 8% auto;
 }
 
-.auth-modal .close:hover,
-.auth-modal .close:focus {
+.address-modal .content__title {
+  position: relative;
+  background: #3a7cf6;
+  padding: 20px 0;
+}
+
+.address-modal .content__title .title {
+  margin-left: 15px;
+  text-align: left;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.address-modal .content__title .close {
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.address-modal .content__title .close:hover,
+.address-modal .content__title .close:focus {
   color: #1a1a1a;
   text-decoration: none;
   cursor: pointer;
+}
+
+.address-modal .content__frame {
+  width: 100%;
+  height: 500px;
+  background: #fff;
+  font-size: 28px;
+  font-weight: 700;
 }
