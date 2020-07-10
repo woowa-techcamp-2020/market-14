@@ -75,9 +75,9 @@ block content
       .form-block
         +bmButton({id:'btnSubmit', text:'회원가입' })
 
-      .modal.auth-modal
+      #authModal.modal.auth-modal
         .modal-content
-          span.close X
+          span#authClose.close X
           .message 인증번호를 확인해주세요.
           .code 123456
 
@@ -85,7 +85,7 @@ block content
         .modal-content
           .content__title
             .title 주소 검색
-            #btnClose.close X
+            #addressClose.close X
           .content__frame#address_modal_frame
 
     section#signupResult.signup__result(style='display:none')
