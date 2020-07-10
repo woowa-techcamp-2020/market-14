@@ -164,7 +164,8 @@ const phoneValidation = () => {
   const phoneReg = /^\d{10,11}$/;
   const inputPhone = document.getElementById('phone');
   const btnGetAutNo = document.getElementById('getAutNo');
-
+  const authDialog = document.getElementById('authModal');
+  const authClose = document.getElementById('authClose');
   const checkPhone = () => {
     const phone = inputPhone.value;
     return phoneReg.test(phone);
@@ -178,7 +179,12 @@ const phoneValidation = () => {
     if (checkPhone()) btnGetAutNo.disabled = false;
     else btnGetAutNo.disabled = true;
   });
-  btnGetAutNo.addEventListener('click', () => {});
+  btnGetAutNo.addEventListener('click', () => {
+    authDialog.style.display = 'block';
+  });
+  authClose.addEventListener('click', () => {
+    authDialog.style.display = 'none';
+  });
 };
 const authValidation = () => {
   const authReg = /^\d{6}$/;
@@ -231,7 +237,7 @@ const handleAddress = () => {
 
   const addressDialog = document.getElementById('address_modal');
   const addressContent = document.getElementById('address_modal_frame');
-  const btnClose = document.getElementById('btnClose');
+  const addressClose = document.getElementById('addressClose');
   addressDialog.style.display = 'none';
   agreeOptional.addEventListener('click', () => {
     if (agreeOptional.checked) {
@@ -279,7 +285,7 @@ const handleAddress = () => {
     }).embed(addressContent);
     addressDialog.style.display = 'block';
   });
-  btnClose.addEventListener('click', () => {
+  addressClose.addEventListener('click', () => {
     addressDialog.style.display = 'none';
   });
 };
@@ -289,10 +295,8 @@ const handleAgree = () => {
   const agreeMarketing = document.getElementById('agreeMarketing');
   const agreeService = document.getElementById('agreeService');
   agreeAll.addEventListener('click', () => {
-    if (agreeAll.checked) {
-      agreeMarketing.checked = true;
-      agreeService.checked = true;
-    }
+    agreeMarketing.checked = agreeAll.checked;
+    agreeService.checked = agreeAll.checked;
   });
   agreeMarketing.addEventListener('click', () => {
     if (!agreeMarketing.checked) agreeAll.checked = false;
