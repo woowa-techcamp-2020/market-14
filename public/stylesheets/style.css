@@ -165,7 +165,7 @@ body {
   width: 100%;
 }
 
-.signup__form .input-checkbox input[type=checkbox] {
+.signup__form .input-checkbox input[type='checkbox'] {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -197,6 +197,7 @@ body {
 }
 
 .signup__form .form-message {
+  color: #9e9e9e;
   display: flex;
   font-size: 14px;
   line-height: 22px;
