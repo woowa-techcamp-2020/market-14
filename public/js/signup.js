@@ -190,8 +190,8 @@ const authValidation = () => {
   const authReg = /^\d{6}$/;
   const inputAutNo = document.getElementById('autNo');
   const btnConfirmAutNo = document.getElementById('confirmAutNo');
-  const msgAutNo = document.getElementById('msgAutNo');
-  msgAutNo.style.display = 'none';
+  const msgAuth = document.getElementById('msgAuth');
+  msgAuth.style.display = 'none';
   const autNoChk = () => {
     const autNo = inputAutNo.value;
     return authReg.test(autNo);
@@ -206,7 +206,17 @@ const authValidation = () => {
     else btnConfirmAutNo.disabled = true;
   });
   btnConfirmAutNo.addEventListener('click', () => {
-    if (inputAutNo.value === '123456') authenticationed = true;
+    if (inputAutNo.value === '123456') {
+      msgAuth.classList.add('msg-confirm');
+      msgAuth.classList.remove('msg-error');
+      msgAuth.textContent = '인증되었습니다.';
+      authenticationed = true;
+    } else {
+      msgAuth.classList.remove('msg-confirm');
+      msgAuth.classList.add('msg-error');
+      msgAuth.textContent = '인증번호를 다시 입력해주세요.';
+    }
+    msgAuth.style.display = '';
   });
 };
 
@@ -220,6 +230,10 @@ const signup = (data) => {
     },
   }).then((res) => {
     if (res.status === 201) {
+      document.getElementById('signupResultName').textContent = data.userName;
+      document.getElementById('signupResultId').textContent = data.userId;
+      document.getElementById('signupResultEmail').textContent = data.email;
+      document.getElementById('signupResultPhone').textContent = data.phoneNo;
       document.getElementById('signupForm').style.display = 'none';
       document.getElementById('signupResult').style.display = '';
     } else {

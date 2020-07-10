@@ -37,7 +37,7 @@ block content
           +bmTextField({id:'autNo', name: '', text: '인증번호 6자리 입력', required: true })
           span.time 02:00
         button#confirmAutNo.sg-button(disabled) 확인
-      #msgAutNo.form-message.msg-error 인증번호를 다시 확인해주세요.
+      #msgAuth.form-message 
       .form-message.vertical.has-info
         .text-small * 인증번호 전송은 통신사에 따라 최대 1분까지 소요될 수 있습니다.
         .text-small * 인증번호가 도착하지 않을 경우 '인증번호 재발송'을 눌러주세요.
@@ -99,16 +99,16 @@ block content
       ul.info-list
         li
           span.header 이름
-          span#info_item_name.content
+          span#signupResultName.content
         li
           span.header 아이디
-          span#info_item_id.content
+          span#signupResultId.content
         li
           span.header 이메일
-          span#info_item_email.content
+          span#signupResultEmail.content
         li
           span.header 휴대폰
-          span#info_item_phone.content
+          span#signupResultPhone.content
       .info-desc
         | - 위 내용은 
         a(href='#') 내 정보 관리

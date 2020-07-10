@@ -86,10 +86,12 @@ body {
   padding: 0 14px;
   font-size: 16px;
   border-radius: 4px;
+  transition: border 0.24s ease;
 }
 
 .bm-textfield:focus {
   outline: 0;
+  border: 2px solid #6ba1e7;
 }
 
 /* main */
@@ -215,6 +217,9 @@ body {
 .signup__form .form-message.msg-error {
   color: #f52926;
 }
+.signup__form .form-message.msg-confirm {
+  color: #56ad74;
+}
 
 .signup__form .form-message .text-small {
   width: 100%;
@@ -255,13 +260,19 @@ body {
   text-align: center;
   margin-left: 8px;
   user-select: none;
+  cursor: pointer;
 }
-
+.signup__form .form-block .sg-button:hover:enabled {
+  background-color: #f9f9f9;
+}
+.signup__form .form-block .sg-button:active:enabled {
+  background-color: #efefef;
+}
 .signup__form .form-block .sg-button:focus {
   outline: 0;
 }
-
 .signup__form .form-block .sg-button:disabled {
+  cursor: default;
   color: #bbc0cd;
   border: 1px solid #ccc;
 }
